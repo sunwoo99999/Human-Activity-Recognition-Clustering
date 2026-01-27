@@ -1,4 +1,4 @@
-# HAR HAR Dataset K-Means Clustering Analysis Program
+# HAR Dataset K-Means Clustering Analysis Program
 
 This Python program analyzes the Human Activity Recognition (HAR) dataset using K-Means clustering and verifies statistical significance of results.
 
@@ -272,3 +272,4 @@ This project may be used for research and educational purposes.
 
 **Last updated**: 2026-01-19
 **Created on**: 2026-01-19
+
