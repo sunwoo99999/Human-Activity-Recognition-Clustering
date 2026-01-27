@@ -1,0 +1,26 @@
+# HAR 데이터셋 K-Means 분석 프로그램 - 필수 라이브러리
+
+# 데이터 처리
+pandas>=1.5.0
+numpy>=1.23.0
+
+# 머신러닝
+scikit-learn>=1.2.0
+
+# 통계 분석
+scipy>=1.10.0
+statsmodels>=0.14.0
+
+# 시각화
+matplotlib>=3.6.0
+seaborn>=0.12.0
+plotly>=5.13.0
+
+# 차원 축소 및 클러스터링 시각화
+yellowbrick>=1.5
+
+# Excel 파일 저장
+openpyxl>=3.0.0
+
+# 진행 표시
+tqdm>=4.64.0
