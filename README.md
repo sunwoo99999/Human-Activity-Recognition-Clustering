@@ -1,8 +1,8 @@
-# HAR HAR Dataset K-Means Clustering Analysis Program
+# HAR Dataset K-Means Clustering Analysis Program
 
 This Python program analyzes the Human Activity Recognition (HAR) dataset using K-Means clustering and verifies statistical significance of results.
 
-## 📋 Table of Contents
+## Table of Contents
 
 - [Project Overview](#project-overview)
 - [Key Features](#key-features)
@@ -23,7 +23,7 @@ The program performs the following steps on the Kaggle HAR dataset:
 6. Visualization: Elbow curve, Silhouette plot, t-SNE, etc.
 7. Report generation: Markdown report and CSV tables
 
-## ✨ Key Features
+## Key Features
 
 ### Data preprocessing
 
@@ -69,7 +69,7 @@ The program performs the following steps on the Kaggle HAR dataset:
 
 <img src="https://github.com/sunwoo99999/Human-Activity-Recognition-Clustering/blob/main/elbow_curve.png?raw=true" height="300"/>
 
-<img src="https://github.com/sunwoo99999/Human-Activity-Recognition Clustering/blob/main/silhouette_scores.png?raw=true" height="300"/>
+<img src="https://github.com/sunwoo99999/Human-Activity-Recognition-Clustering/blob/main/silhouette_scores.png?raw=true" height="300"/>
 
 **Cluster Visualization (2D Projection)**
 
@@ -296,4 +296,5 @@ This project may be used for research and educational purposes.
 
 **Last updated**: 2026-01-19
 **Created on**: 2026-01-19
+
 
