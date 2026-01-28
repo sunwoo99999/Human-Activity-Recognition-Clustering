@@ -1,4 +1,4 @@
-# HAR Dataset K-Means Clustering Analysis Program
+# HAR HAR Dataset K-Means Clustering Analysis Program
 
 This Python program analyzes the Human Activity Recognition (HAR) dataset using K-Means clustering and verifies statistical significance of results.
 
@@ -62,6 +62,24 @@ The program performs the following steps on the Kaggle HAR dataset:
 - Feature importance bar chart
 - Correlation heatmap
 - ANOVA p-value distribution
+
+#### Key Visualizations
+
+**Elbow Curve & Silhouette Analysis**
+
+![Elbow Curve](results/figures/elbow_curve.png)
+
+![Silhouette Scores](results/figures/silhouette_scores.png)
+
+**Cluster Visualization (2D Projection)**
+
+![PCA Clusters](results/figures/clusters_2d_pca.png)
+
+![t-SNE Clusters](results/figures/clusters_2d_tsne.png)
+
+**Silhouette Diagram**
+
+![Silhouette Diagram](results/figures/silhouette_diagram.png)
 
 ## Usage
 
@@ -158,17 +176,23 @@ OUTLIER_THRESHOLD = 3.0
 
 ### Figures (`results/figures/`)
 
-- `elbow_curve.png`
-- `silhouette_scores.png`
-- `all_metrics.png`
-- `clusters_2d_pca.png`
-- `clusters_2d_tsne.png`
-- `silhouette_diagram.png`
-- `confusion_matrix.png` (if labels available)
-- `feature_importance.png`
-- `correlation_heatmap.png`
-- `pvalue_distribution.png`
-- `cluster_sizes.png`
+**Clustering Evaluation Metrics**
+
+![All Metrics](results/figures/all_metrics.png)
+
+![Cluster Sizes](results/figures/cluster_sizes.png)
+
+**Feature Analysis**
+
+![Feature Importance](results/figures/feature_importance.png)
+
+![Correlation Heatmap](results/figures/correlation_heatmap.png)
+
+**Confusion Matrix & Statistical Tests**
+
+![Confusion Matrix](results/figures/confusion_matrix.png)
+
+![P-value Distribution](results/figures/pvalue_distribution.png)
 
 ### Tables (`results/tables/`)
 
@@ -272,4 +296,3 @@ This project may be used for research and educational purposes.
 
 **Last updated**: 2026-01-19
 **Created on**: 2026-01-19
-
