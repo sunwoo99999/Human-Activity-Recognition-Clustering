@@ -2,7 +2,7 @@
 
 This Python program analyzes the Human Activity Recognition (HAR) dataset using K-Means clustering and verifies statistical significance of results.
 
-## 📋 Table of Contents
+## Table of Contents
 
 - [Project Overview](#project-overview)
 - [Key Features](#key-features)
@@ -23,7 +23,7 @@ The program performs the following steps on the Kaggle HAR dataset:
 6. Visualization: Elbow curve, Silhouette plot, t-SNE, etc.
 7. Report generation: Markdown report and CSV tables
 
-## ✨ Key Features
+## Key Features
 
 ### Data preprocessing
 
@@ -63,19 +63,22 @@ The program performs the following steps on the Kaggle HAR dataset:
 
 **Elbow Curve & Silhouette Analysis**
 
-![Elbow Curve](results/figures/elbow_curve.png)
+<img src="https://github.com/sunwoo99999/Human-Activity-Recognition-Clustering/blob/main/elbow_curve.png?raw=true" height=300/> 
 
-![Silhouette Scores](results/figures/silhouette_scores.png)
+<img src="https://github.com/sunwoo99999/Human-Activity-Recognition-Clustering/blob/main/silhouette_scores.png?raw=true" height=300/> 
+
 
 **Cluster Visualization (2D Projection)**
 
-![PCA Clusters](results/figures/clusters_2d_pca.png)
+<img src="https://github.com/sunwoo99999/Human-Activity-Recognition-Clustering/blob/main/clusters_2d_pca.png?raw=true" height=300/> 
 
-![t-SNE Clusters](results/figures/clusters_2d_tsne.png)
+<img src="https://github.com/sunwoo99999/Human-Activity-Recognition-Clustering/blob/main/clusters_2d_tsne.png?raw=true" height=300/> 
+
 
 **Silhouette Diagram**
 
-![Silhouette Diagram](results/figures/silhouette_diagram.png)
+<img src="https://github.com/sunwoo99999/Human-Activity-Recognition-Clustering/blob/main/silhouette_diagram.png?raw=true" height=300/> 
+
 
 ## Usage
 
@@ -174,21 +177,24 @@ OUTLIER_THRESHOLD = 3.0
 
 **Clustering Evaluation Metrics**
 
-![All Metrics](results/figures/all_metrics.png)
+<img src="https://github.com/sunwoo99999/Human-Activity-Recognition-Clustering/blob/main/all_metrics.png?raw=true" height=300/> 
 
-![Cluster Sizes](results/figures/cluster_sizes.png)
+<img src="https://github.com/sunwoo99999/Human-Activity-Recognition-Clustering/blob/main/cluster_sizes.png?raw=true" height=300/> 
+
 
 **Feature Analysis**
 
-![Feature Importance](results/figures/feature_importance.png)
+<img src="https://github.com/sunwoo99999/Human-Activity-Recognition-Clustering/blob/main/feature_importance.png?raw=true" height=300/> 
 
-![Correlation Heatmap](results/figures/correlation_heatmap.png)
+<img src="https://github.com/sunwoo99999/Human-Activity-Recognition-Clustering/blob/main/correlation_heatmap.png?raw=true" height=300/> 
+
 
 **Confusion Matrix & Statistical Tests**
 
-![Confusion Matrix](results/figures/confusion_matrix.png)
+<img src="https://github.com/sunwoo99999/Human-Activity-Recognition-Clustering/blob/main/pvalue_distribution.png?raw=true" height=300/> 
 
-![P-value Distribution](results/figures/pvalue_distribution.png)
+<img src="https://github.com/sunwoo99999/Human-Activity-Recognition-Clustering/blob/main/pvalue_distribution.png?raw=true" height=300/> 
+
 
 ### Tables (`results/tables/`)
 
@@ -289,3 +295,4 @@ This project may be used for research and educational purposes.
 
 **Last updated**: 2026-01-19
 **Created on**: 2026-01-19
+
