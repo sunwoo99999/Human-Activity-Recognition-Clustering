@@ -2,7 +2,7 @@
 
 This Python program analyzes the Human Activity Recognition (HAR) dataset using K-Means clustering and verifies statistical significance of results.
 
-## Table of Contents
+## 📋 Table of Contents
 
 - [Project Overview](#project-overview)
 - [Key Features](#key-features)
@@ -19,11 +19,11 @@ The program performs the following steps on the Kaggle HAR dataset:
 2. Exploratory data analysis (EDA): basic statistics, correlations, feature importance
 3. K-Means clustering: search for optimal K and cluster analysis
 4. Evaluation: compute internal and external clustering metrics
-5. Statistical testing: ANOVA, Kruskal–Wallis, effect size calculations
+5. Unsupervised performance evaluation: Silhouette Score for clustering quality
 6. Visualization: Elbow curve, Silhouette plot, t-SNE, etc.
 7. Report generation: Markdown report and CSV tables
 
-## Key Features
+## ✨ Key Features
 
 ### Data preprocessing
 
@@ -43,14 +43,11 @@ The program performs the following steps on the Kaggle HAR dataset:
 - Internal metrics: Silhouette Score, Davies–Bouldin Index, Calinski–Harabasz Index, Inertia
 - External metrics: Adjusted Rand Index, NMI, Homogeneity, Completeness, V-measure, Purity
 
-### Statistical tests
+### Clustering Performance Evaluation
 
-- One-way ANOVA
-- Kruskal–Wallis test
-- Tukey HSD post-hoc test
-- Cohen's d effect size
-- Eta-squared (η²)
-- Multiple testing correction (Bonferroni)
+- Silhouette Score (unsupervised clustering quality metric)
+- Internal metrics (Davies-Bouldin Index, Calinski-Harabasz Index)
+- External metrics (when true labels are available)
 
 ### Visualization
 
@@ -61,25 +58,24 @@ The program performs the following steps on the Kaggle HAR dataset:
 - Confusion matrix heatmap
 - Feature importance bar chart
 - Correlation heatmap
-- ANOVA p-value distribution
 
 #### Key Visualizations
 
 **Elbow Curve & Silhouette Analysis**
 
-<img src="https://github.com/sunwoo99999/Human-Activity-Recognition-Clustering/blob/main/elbow_curve.png?raw=true" height="300"/>
+![Elbow Curve](results/figures/elbow_curve.png)
 
-<img src="https://github.com/sunwoo99999/Human-Activity-Recognition-Clustering/blob/main/silhouette_scores.png?raw=true" height="300"/>
+![Silhouette Scores](results/figures/silhouette_scores.png)
 
 **Cluster Visualization (2D Projection)**
 
-<img src="https://github.com/sunwoo99999/Human-Activity-Recognition-Clustering/blob/main/clusters_2d_pca.png?raw=true" height="300"/>
+![PCA Clusters](results/figures/clusters_2d_pca.png)
 
-<img src="https://github.com/sunwoo99999/Human-Activity-Recognition-Clustering/blob/main/clusters_2d_tsne.png?raw=true" height="300"/>
+![t-SNE Clusters](results/figures/clusters_2d_tsne.png)
 
 **Silhouette Diagram**
 
-<img src="https://github.com/sunwoo99999/Human-Activity-Recognition-Clustering/blob/main/silhouette_diagram.png?raw=true" height="300"/>
+![Silhouette Diagram](results/figures/silhouette_diagram.png)
 
 ## Usage
 
@@ -178,28 +174,28 @@ OUTLIER_THRESHOLD = 3.0
 
 **Clustering Evaluation Metrics**
 
-<img src="https://github.com/sunwoo99999/Human-Activity-Recognition-Clustering/blob/main/all_metrics.png?raw=true" height="300"/>
+![All Metrics](results/figures/all_metrics.png)
 
-<img src="https://github.com/sunwoo99999/Human-Activity-Recognition-Clustering/blob/main/cluster_sizes.png?raw=true" height="300"/>
+![Cluster Sizes](results/figures/cluster_sizes.png)
 
 **Feature Analysis**
 
-<img src="https://github.com/sunwoo99999/Human-Activity-Recognition-Clustering/blob/main/feature_importance.png?raw=true" height="300"/>
+![Feature Importance](results/figures/feature_importance.png)
 
-<img src="https://github.com/sunwoo99999/Human-Activity-Recognition-Clustering/blob/main/correlation_heatmap.png?raw=true" height="300"/>
+![Correlation Heatmap](results/figures/correlation_heatmap.png)
 
 **Confusion Matrix & Statistical Tests**
 
-<img src="https://github.com/sunwoo99999/Human-Activity-Recognition-Clustering/blob/main/confusion_matrix.png?raw=true" height="300"/>
+![Confusion Matrix](results/figures/confusion_matrix.png)
 
-<img src="https://github.com/sunwoo99999/Human-Activity-Recognition-Clustering/blob/main/pvalue_distribution.png?raw=true" height="300"/>
+![P-value Distribution](results/figures/pvalue_distribution.png)
 
 ### Tables (`results/tables/`)
 
 - `clustering_results.csv` (metrics per K)
 - `internal_metrics.csv`
 - `external_metrics.csv`
-- `anova_results.csv`
+- `silhouette_results.csv`
 - `feature_importance.csv`
 
 ### Report (`results/`)
@@ -236,9 +232,7 @@ External metrics:
   - Purity: 0.8012
 
 Statistical testing:
-  - Total features: 561
-  - Significant features (ANOVA, p<0.05): 523
-  - Significant feature ratio: 93.23%
+  - Silhouette Score: 0.4523
 
 Results saved to:
   - Figures: results\figures
@@ -279,22 +273,19 @@ plt.rcParams['font.family'] = 'Malgun Gothic'  # Malgun Gothic
 
 Update `LABEL_COLUMN` in `config.py` to match the actual label column name in your dataset.
 
-## References
+## 📚 References
 
 - **K-Means**: [scikit-learn documentation](https://scikit-learn.org/stable/modules/clustering.html#k-means)
 - **Silhouette Score**: [scikit-learn Silhouette](https://scikit-learn.org/stable/modules/clustering.html#silhouette-coefficient)
-- **ANOVA**: [scipy.stats.f_oneway](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.f_oneway.html)
 - **t-SNE**: [scikit-learn t-SNE](https://scikit-learn.org/stable/modules/generated/sklearn.manifold.TSNE.html)
 
-## Support
+## 📧 Support
 
 If you encounter issues while using the program, check the log file (`results/logs/analysis.log`).
 
-## License
+## 📄 License
 
 This project may be used for research and educational purposes.
 
 **Last updated**: 2026-01-19
 **Created on**: 2026-01-19
-
-

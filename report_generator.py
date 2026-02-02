@@ -188,25 +188,22 @@ class ReportGenerator:
     
     def add_statistical_section(self, stat_results):
         """통계 검정 결과 섹션 추가"""
-        self._add_section("6. 통계적 유의성 검증", level=2)
+        self._add_section("6. 비지도 학습 성능 평가", level=2)
         
-        # 6.1 ANOVA 결과
-        if 'anova' in stat_results:
-            self._add_section("6.1 ANOVA 검정 결과", level=3)
-            anova_df = stat_results['anova']
+        # 6.1 Silhouette Score 결과
+        if 'silhouette' in stat_results:
+            self._add_section("6.1 Silhouette Score 평가", level=3)
+            sil_score = stat_results['silhouette']['silhouette_score']
             
-            # 유의한 특성만 표시
-            significant_features = anova_df[anova_df['significant'] == True]
+            self._add_text(f"**Silhouette Score**: {sil_score:.4f}")
+            self._add_text(f"**해석**: {stat_results['silhouette']['interpretation']}")
             
-            self._add_text(f"**총 특성 수**: {len(anova_df)}")
-            self._add_text(f"**유의한 특성 수** (p < 0.05): {len(significant_features)}")
-            self._add_text(f"**유의한 특성 비율**: {len(significant_features)/len(anova_df)*100:.2f}%")
-            
-            self._add_text("\n**유의한 특성 (Top 20)**:")
-            top_significant = significant_features.nsmallest(20, 'p_value')[
-                ['feature', 'F_statistic', 'p_value']
-            ]
-            self._add_table(top_significant)
+            # Silhouette Score 해석 가이드
+            self._add_text("\n**점수 해석 기준**:")
+            self._add_text("- 0.71 - 1.0: 강한 구조")
+            self._add_text("- 0.51 - 0.70: 합리적인 구조")
+            self._add_text("- 0.26 - 0.50: 약한 구조")
+            self._add_text("- < 0.25: 구조를 찾지 못함")
         
         # 6.2 Kruskal-Wallis 결과
         if 'kruskal_wallis' in stat_results:
@@ -304,9 +301,10 @@ class ReportGenerator:
                 external_df = pd.DataFrame([eval_results['external_metrics']])
                 external_df.to_csv(tables_dir / 'external_metrics.csv', index=False)
             
-            # 4. ANOVA 결과
-            if 'anova' in stat_results:
-                stat_results['anova'].to_csv(tables_dir / 'anova_results.csv', index=False)
+            # 4. Silhouette Score 결과
+            if 'silhouette' in stat_results:
+                sil_df = pd.DataFrame([stat_results['silhouette']])
+                sil_df.to_csv(tables_dir / 'silhouette_results.csv', index=False)
             
             # 5. 특성 중요도
             if 'feature_importance' in eda_results:

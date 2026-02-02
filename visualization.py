@@ -494,9 +494,7 @@ def create_all_visualizations(clustering_obj, X_train, train_labels,
     if 'correlation' in eda_results:
         viz.plot_correlation_heatmap(eda_results['correlation'])
     
-    # 7. 통계 검정 결과
-    if 'anova' in stat_results:
-        viz.plot_statistical_pvalues(stat_results['anova'])
+    # 7. 통계 검정 결과 (silhouette score는 이미 내부 평가지표에 포함되어 있으므로 별도 시각화 불필요)
     
     # 8. 클러스터 크기
     if 'cluster_distribution' in eval_results:

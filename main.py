@@ -239,12 +239,8 @@ def main():
             print(f"  - Purity: {eval_results['external_metrics']['purity']:.4f}")
         
         print(f"\nStatistical testing:")
-        if 'anova' in stat_results:
-            n_total = len(stat_results['anova'])
-            n_significant = stat_results['anova']['significant'].sum()
-            print(f"  - Total features: {n_total}")
-            print(f"  - Significant features (ANOVA, p<0.05): {n_significant}")
-            print(f"  - Significant feature ratio: {n_significant/n_total*100:.2f}%")
+        if 'silhouette' in stat_results:
+            print(f"  - Silhouette Score: {stat_results['silhouette']['silhouette_score']:.4f}")
         
         print(f"\nResults saved to:")
         print(f"  - Figures: {Config.FIGURES_DIR}")

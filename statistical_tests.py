@@ -9,7 +9,7 @@ import numpy as np
 import pandas as pd
 import logging
 from scipy import stats
-from scipy.stats import f_oneway
+from sklearn.metrics import silhouette_score
 from config import Config
 from utils import Timer
 
@@ -37,46 +37,28 @@ class StatisticalTester:
         if self.feature_names is None:
             self.feature_names = [f"Feature_{i}" for i in range(X.shape[1])]
     
-    def anova_test(self):
+    def silhouette_evaluation(self):
         """
-        일원 분산분석(One-way ANOVA) 수행
+        Silhouette Score를 이용한 클러스터링 성능 평가
         
-        각 특성에 대해 클러스터 간 평균 차이가 통계적으로 유의한지 검정합니다.
+        비지도 학습의 성능을 silhouette score로 평가합니다.
         
         Returns:
-            pd.DataFrame: 각 특성별 ANOVA 결과 (F-statistic, p-value, significant)
+            dict: silhouette score 결과
         """
-        with Timer("Performing ANOVA tests"):
-            results = []
+        with Timer("Evaluating clustering performance with Silhouette Score"):
+            # Silhouette Score 계산
+            score = silhouette_score(self.X, self.cluster_labels)
             
-            for i, feature_name in enumerate(self.feature_names):
-                # 특성 데이터
-                feature_data = self.X[:, i]
-                
-                # 클러스터별로 데이터 분리
-                groups = [
-                    feature_data[self.cluster_labels == cluster_id]
-                    for cluster_id in range(self.n_clusters)
-                ]
-                
-                # ANOVA F-검정
-                f_statistic, p_value = f_oneway(*groups)
-                
-                results.append({
-                    'feature': feature_name,
-                    'F_statistic': f_statistic,
-                    'p_value': p_value,
-                    'significant': p_value < self.alpha
-                })
+            print(f"Silhouette Score: {score:.2f}")
+            logging.info(f"Silhouette Score: {score:.4f}")
             
-            results_df = pd.DataFrame(results)
+            result = {
+                'silhouette_score': score,
+                'interpretation': 'Higher is better (range: -1 to 1)'
+            }
             
-            # 유의한 특성 개수
-            n_significant = results_df['significant'].sum()
-            logging.info(f"ANOVA: {n_significant}/{len(self.feature_names)} features "
-                        f"show significant differences (alpha={self.alpha})")
-            
-            return results_df
+            return result
     def repeated_experiments(self, X, n_iterations=10):
         """
         반복 실험을 통한 재현성 검증
@@ -151,8 +133,8 @@ class StatisticalTester:
         
         results = {}
         
-        # 1. ANOVA 검정 - 클러스터 간 차이의 통계적 유의성
-        results['anova'] = self.anova_test()
+        # 1. Silhouette Score - 비지도 학습 성능 평가
+        results['silhouette'] = self.silhouette_evaluation()
         
         logging.info("Statistical analysis completed!")
         
