@@ -279,20 +279,21 @@ plt.rcParams['font.family'] = 'Malgun Gothic'  # Malgun Gothic
 
 Update `LABEL_COLUMN` in `config.py` to match the actual label column name in your dataset.
 
-## 📚 References
+## References
 
 - **K-Means**: [scikit-learn documentation](https://scikit-learn.org/stable/modules/clustering.html#k-means)
 - **Silhouette Score**: [scikit-learn Silhouette](https://scikit-learn.org/stable/modules/clustering.html#silhouette-coefficient)
 - **t-SNE**: [scikit-learn t-SNE](https://scikit-learn.org/stable/modules/generated/sklearn.manifold.TSNE.html)
 
-## 📧 Support
+## Support
 
 If you encounter issues while using the program, check the log file (`results/logs/analysis.log`).
 
-## 📄 License
+## License
 
 This project may be used for research and educational purposes.
 
-**Last updated**: 2026-01-19
+**Last updated**: 2026-01-31
 **Created on**: 2026-01-19
+
 
